@@ -49,10 +49,10 @@
         </div>
       </form>
     </div>
+
     <?php wp_head(); ?>
-    <?php wp_nav_menu(array('theme_location' => 'theme-menu', 'container' => 'nav', 'container_class' => 'container', 'menu_class'
-    => 'menu', 'menu_id' => 'nav', 'fallback_cb' => 'wp_page_menu', 'depth' => '1')); ?>
-    <!-- <nav id="nav">
+
+    <nav id="nav">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -82,4 +82,4 @@
           </div>
         </div>
       </div>
-    </nav> -->
+    </nav>
