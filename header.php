@@ -4,11 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Labb 1</title>
-  <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-
-  <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>" type="text/css" />
-  <script src="js/jquery.js"></script>
+  <?php wp_head(); ?>
 </head>
 
 <body>
