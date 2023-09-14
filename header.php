@@ -6,6 +6,7 @@
   <title>Labb 1</title>
   <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>" type="text/css" />
   <script src="js/jquery.js"></script>
 </head>
@@ -48,7 +49,9 @@
         </div>
       </form>
     </div>
-
+    <?php wp_head(); ?>
+    <?php wp_nav_menu(array('theme_location' => 'theme-menu', 'container' => 'nav', 'container_class' => 'container', 'menu_class'
+    => 'menu', 'menu_id' => 'nav', 'fallback_cb' => 'wp_page_menu', 'depth' => '1')); ?>
     <!-- <nav id="nav">
       <div class="container">
         <div class="row">
