@@ -1,21 +1,21 @@
-<aside id="secondary" class="col-xs-12 col-md-3">
+<aside id="secondary" class="<?= is_page('Undersida 2') ? 'col-xs-12 col-md-3 col-md-pull-9' : 'col-xs-12 col-md-3' ?>">
   <ul class="side-menu">
-    <?php 
+    <?php
     if (is_page() && $post->post_parent) :
       $siblings = get_pages(array(
-      'child_of' => $post->post_parent,
-      'parent' => $post->post_parent,
-      'sort_column' => 'menu_order',
-      'sort_order' => 'asc'
-      )); 
-    foreach ($siblings as $sibling) : ?>
-    <li>
-      <a href="<?= get_permalink($sibling->ID); ?>"><?= $sibling->post_title; ?></a>
-    </li>
-    <?php endforeach; ?>
+        'child_of' => $post->post_parent,
+        'parent' => $post->post_parent,
+        'sort_column' => 'menu_order',
+        'sort_order' => 'asc'
+      ));
+      foreach ($siblings as $sibling) : ?>
+        <li>
+          <a href=" <?= get_permalink($sibling->ID); ?>"><?= $sibling->post_title; ?></a>
+        </li>
+      <?php endforeach; ?>
   </ul>
 
-  <?php else : ?>
+<?php else : ?>
   <div id="sidebar">
     <ul>
       <li>
@@ -82,6 +82,6 @@
         </ul>
       </li>
     </ul>
-    <?php endif; ?>
   </div>
+<?php endif; ?>
 </aside>
