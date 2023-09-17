@@ -19,6 +19,7 @@ function load_styles()
 }
 add_action('wp_enqueue_scripts', 'load_styles');
 
+
 function load_scripts()
 {
 
@@ -39,9 +40,5 @@ if (!function_exists('labbett_register_nav_menu'))
       'footer_menu' => __( 'Footer Menu', 'text_domain' ),
 		));
 	}
-	add_action('after_setup_theme', 'labbett_register_nav_menu', 0);
 }
-
-
-
-?>
+add_action('after_setup_theme', 'labbett_register_nav_menu', 0);

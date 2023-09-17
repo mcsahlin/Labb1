@@ -1,6 +1,3 @@
-<?php 
-$menu = wp_get_nav_menu_items('main-menu');
-?>
 <!DOCTYPE html>
 <html>
 
@@ -10,15 +7,15 @@ $menu = wp_get_nav_menu_items('main-menu');
   <?php wp_head(); ?>
 </head>
 
+
 <body>
 
   <div id="wrap">
-
     <header id="header">
       <div class="container">
         <div class="row">
           <div class="col-xs-8 col-sm-6">
-            <a class="logo" href="index.html">Labb 1</a>
+            <a class="logo" href="<?= bloginfo('url') ?>">Labb 1</a>
           </div>
           <div class="col-sm-6 hidden-xs">
             <form id="searchform" class="searchform">
@@ -38,7 +35,15 @@ $menu = wp_get_nav_menu_items('main-menu');
         </div>
       </div>
     </header>
-
+    <?php $menu = wp_get_nav_menu_items('main-menu'); ?>
+    <?php wp_nav_menu(array(
+      'theme_location' => 'primary_menu',
+      'container' => 'nav',
+      'container_id' => 'nav',
+      'menu_class' => 'menu',
+      'items_wrap' => '<div class="container"><div class="row"><div class="col-xs-12"><ul class="%2$s">%3$s</ul></div></div></div>',
+      'add_li_class' => is_page() ? 'current-menu-item' : '',
+    )); ?>
     <div class="mobile-search">
       <form id="searchform" class="searchform">
         <div>
@@ -48,14 +53,3 @@ $menu = wp_get_nav_menu_items('main-menu');
         </div>
       </form>
     </div>
-    
-    <?php
-    wp_nav_menu(array(
-      'theme_location' => 'primary_menu',
-      'container' => 'nav',
-      'container_id' => 'nav',
-      'menu_class' => 'menu',
-      'items_wrap' => '<div class="container"><div class="row"><div class="col-xs-12"><ul class="%2$s">%3$s</ul></div></div></div>',
-      'add_li_class' => is_page() ? 'current-menu-item' : '', 
-    ));
-?>
