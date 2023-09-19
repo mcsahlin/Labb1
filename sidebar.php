@@ -9,23 +9,17 @@
         'sort_order' => 'asc'
       ));
       foreach ($siblings as $sibling) : ?>
-        <li>
-          <a href=" <?= get_permalink($sibling->ID); ?>"><?= $sibling->post_title; ?></a>
-        </li>
-      <?php endforeach; ?>
+    <li>
+      <a href=" <?= get_permalink($sibling->ID); ?>"><?= $sibling->post_title; ?></a>
+    </li>
+    <?php endforeach; ?>
   </ul>
 
-<?php else : ?>
+  <?php else : ?>
   <div id="sidebar">
     <ul>
       <li>
-        <form id="searchform" class="searchform">
-          <div>
-            <label class="screen-reader-text">Sök efter:</label>
-            <input type="text" />
-            <input type="submit" value="Sök" />
-          </div>
-        </form>
+        <?php get_search_form(); ?>
       </li>
     </ul>
     <ul role="navigation">
@@ -93,5 +87,5 @@
       </li>
     </ul>
   </div>
-<?php endif; ?>
+  <?php endif; ?>
 </aside>

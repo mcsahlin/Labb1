@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 <div id="primary" class="col-xs-12 col-md-9">
   <article>
     <img src="<?= get_the_post_thumbnail_url(); ?>" />
@@ -10,7 +11,7 @@
       </li>
       <li>
         <i class="fa fa-user"></i>
-        <?= get_the_author_posts_link(); ?>
+        <?= the_author_posts_link(); ?>
       </li>
       <li>
         <i class="fa fa-tag"></i>
@@ -20,5 +21,7 @@
     <p><?= the_content(); ?></p>
   </article>
 </div>
+<?php endwhile;
+endif; ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
