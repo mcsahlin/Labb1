@@ -18,13 +18,7 @@
             <a class="logo" href="<?= bloginfo('url') ?>">Labb 1</a>
           </div>
           <div class="col-sm-6 hidden-xs">
-            <form id="searchform" class="searchform">
-              <div>
-                <label class="screen-reader-text">Sök efter:</label>
-                <input type="text" />
-                <input type="submit" value="Sök" />
-              </div>
-            </form>
+            <?php get_search_form(); ?>
           </div>
           <div class="col-xs-4 text-right visible-xs">
             <div class="mobile-menu-wrap">
@@ -35,7 +29,6 @@
         </div>
       </div>
     </header>
-    <?php $menu = wp_get_nav_menu_items('main-menu'); ?>
     <?php wp_nav_menu(array(
       'theme_location' => 'primary_menu',
       'container' => 'nav',
@@ -45,13 +38,7 @@
       'add_li_class' => is_page() ? 'current-menu-item' : '',
     )); ?>
     <div class="mobile-search">
-      <form id="searchform" class="searchform">
-        <div>
-          <label class="screen-reader-text">Sök efter:</label>
-          <input type="text" />
-          <input type="submit" value="Sök" />
-        </div>
-      </form>
+      <?php get_search_form(); ?>
     </div>
     <main>
       <section>

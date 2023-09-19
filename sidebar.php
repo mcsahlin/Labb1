@@ -65,9 +65,19 @@
       <li>
         <h2>Arkiv</h2>
         <ul>
-          <li>
-            <a href="arkiv.html">oktober 2017</a>
-          </li>
+          <?php
+          $args = array(
+            'type'            => 'monthly',
+            'limit'           => '',
+            'format'          => 'html',
+            'before'          => '',
+            'after'           => '',
+            'show_post_count' => false,
+            'echo'            => 1,
+            'order'           => 'DESC',
+          );
+          wp_get_archives($args);
+          ?>
         </ul>
       </li>
       <li class="categories">

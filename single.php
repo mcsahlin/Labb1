@@ -5,16 +5,20 @@
     <h1 class="title"><?= the_title(); ?></h1>
     <ul class="meta">
       <li>
-        <i class="fa fa-calendar"></i> <?= get_the_date(); ?>
+        <i class="fa fa-calendar"></i>
+        <?= get_the_date(); ?>
       </li>
       <li>
-        <i class="fa fa-user"></i><a href="<?= the_author_link(); ?>"><?= the_author(); ?> </a>
+        <i class="fa fa-user"></i>
+        <?= get_the_author_posts_link(); ?>
       </li>
       <li>
-        <i class="fa fa-tag"></i><a href="<?= the_category(', '); ?>"></a>
+        <i class="fa fa-tag"></i>
+        <?= the_category(', '); ?>
       </li>
     </ul>
     <p><?= the_content(); ?></p>
   </article>
 </div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

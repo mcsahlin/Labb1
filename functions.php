@@ -45,3 +45,43 @@ if (!function_exists('labbett_register_nav_menu')) {
 	}
 }
 add_action('after_setup_theme', 'labbett_register_nav_menu', 0);
+
+function page()
+{
+	if (is_home()) {
+		return "Blogg";
+	} else if (is_archive()) {
+		if (is_month()) :	return 'Arkiv: ' . ucfirst(single_month_title(" ", false));
+		elseif (is_author()) : return get_the_author();
+		elseif (is_category()) : return single_cat_title("", false);
+		endif;
+	} else if (is_search()) {
+		return 'Sökresultat för: ' . get_search_query();
+	} else if (is_404()) {
+		return '404 - Sidan kunde inte hittas . . .';
+	} else if (is_page()) {
+		return the_title();
+	} else {
+		return '';
+	}
+}
+
+function menu_desktop()
+{
+	$menu = wp_get_nav_menu_items('main-menu');
+	wp_nav_menu(array(
+		'theme_location' => 'primary_menu',
+		'container' => 'nav' . ' ' . 'class="hidden-xs"',
+		'container_id' => 'nav' . ' ' . 'class="hidden-xs"',
+		'menu_class' => 'menu' . ' ' . 'class="hidden-xs"',
+		'items_wrap' => '<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<ul class="%2$s">%3$s</ul>
+				</div>
+			</div>
+		</div>',
+		'add_li_class' => is_page() ? 'current-menu-item' : '',
+	));
+	return $menu;
+}
