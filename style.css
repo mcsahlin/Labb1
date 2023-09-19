@@ -513,3 +513,18 @@ article .categories > li > a {
 		margin-top: 20px;
 	}
 }
+
+.search-fail {
+	width: 100%;
+	text-align: center;
+}
+
+.search-fail-msg {
+	font-size: 20px;
+}
+
+.search-fail-img {
+	width: 50%;
+	height: auto;
+	margin: 0 auto;
+}
